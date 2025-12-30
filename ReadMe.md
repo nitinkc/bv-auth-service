@@ -1,7 +1,7 @@
-
 ##### bv-common-auth is only a library:
 The bv-common-auth module provides shared authentication **utilities** 
 (like UserContext, SecurityContextHolder, and AuthUtils) for use in your other services. 
+
 It **does not** implement actual authentication logic, user storage, or token issuance.
 
 ##### What the auth service does:
