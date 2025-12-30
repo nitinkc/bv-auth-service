@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.bit.velocity</groupId>
         <artifactId>bv-core-parent</artifactId>
-        <version>0.0.13-SNAPSHOT		</version>
+        <version>0.0.13-SNAPSHOT</version>
 <!--      used only for local testing-->
 <!--        <relativePath>../../bv-core-parent/pom.xml</relativePath>-->
     </parent>

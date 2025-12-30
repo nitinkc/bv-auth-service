@@ -2,6 +2,7 @@ package com.bit.velocity.authservice.model;
 
 import jakarta.persistence.*;
 import java.util.Set;
+import lombok.Data;
 
 @Entity
 @Table(name = "users")
