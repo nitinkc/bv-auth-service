@@ -1,0 +1,75 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/bitvelocity_auth}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: ${SHOW_SQL:false}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    open-in-view: false
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 60000
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 2
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:bitvelocity-super-secret-key-change-in-production-use-at-least-256-bits-for-hs256}
+  access-token-expiration: ${JWT_ACCESS_EXPIRATION:900000}      # 15 minutes
+  refresh-token-expiration: ${JWT_REFRESH_EXPIRATION:604800000} # 7 days
+  issuer: bitvelocity-auth-service
+
+# Security Configuration
+security:
+  allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000,http://localhost:8081}
+  rate-limit:
+    enabled: true
+    max-requests-per-minute: 10
+  account-lockout:
+    enabled: true
+    max-failed-attempts: 5
+    lockout-duration-minutes: 30
+
+# OpenAPI/Swagger
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.bitvelocity.auth: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: INFO

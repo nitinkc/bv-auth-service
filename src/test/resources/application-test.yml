@@ -1,0 +1,43 @@
+server:
+  servlet:
+    context-path: /api
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: test
+    password: test
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 1
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    open-in-view: false
+
+jwt:
+  secret: test-secret-key-for-testing-purposes-must-be-at-least-256-bits-long-for-hs256-algorithm
+  access-token-expiration: 900000
+  refresh-token-expiration: 604800000
+  issuer: bitvelocity-auth-service-test
+
+security:
+  account-lockout:
+    enabled: true
+    max-attempts: 5
+    lockout-duration-minutes: 30
+
+
+
