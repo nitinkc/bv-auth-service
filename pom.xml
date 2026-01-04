@@ -60,17 +60,17 @@
         <dependency>
             <groupId>com.bit.velocity</groupId>
             <artifactId>bv-common-auth</artifactId>
-            <version>1.11-SNAPSHOT</version>
+            <version>1.8-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.bit.velocity</groupId>
             <artifactId>bv-common-security</artifactId>
-            <version>1.11-SNAPSHOT</version>
+            <version>1.8-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.bit.velocity</groupId>
             <artifactId>bv-common-exceptions</artifactId>
-            <version>1.11-SNAPSHOT</version>
+            <version>1.8-SNAPSHOT</version>
         </dependency>
 
         <!-- Lombok -->
